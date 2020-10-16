@@ -1,0 +1,28 @@
+{% if cars %}
+<table id="carTable">
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Rejection %</th>
+      <th>Rejection reason #1</th>
+      <th>Rejection reason #2</th>
+      <th>Rejection reason #3</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in cars %}
+      <tr>
+        <td>{{c.model_year}}</td>
+        <td>{{c.make}}</td>
+        <td>{{c.model}}</td>
+        <td>{{c.rejection_percentage}} %</td>
+        <td>{{c.reason_1}}</td>
+        <td>{{c.reason_2}}</td>
+        <td>{{c.reason_3}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}

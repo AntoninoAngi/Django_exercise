@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block header %}
+{{ block.super }}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css_folder/style.css' %}">
+<script type="text/javascript" src="{% static 'js_folder/javascript.js' %}"></script>
+
+
+{% endblock %}
+
+{% block content %}
+
+ <div>
+      <h1>Upload material </h1>
+        <form id = "myFormID" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <label>Upload updated material: </label>
+          <input type="file" accept=".json" name="file">
+
+        </br>
+          <button id="upload_button" type="submit" disabled><span>Upload</span></button>
+        </form>
+    </div>
+
+{% if cars %}
+<div id="after_upload" >
+
+  <h1> Vehicle data </h1>
+  <input type="text" id="searchInput" name="search" placeholder="Search...">
+
+</div>
+{% endif %}
+
+<div id="tableContainer">
+
+  {% include 'cartable.html' %}
+
+</div>
+
+{% endblock %}
+
+
+
+
+
